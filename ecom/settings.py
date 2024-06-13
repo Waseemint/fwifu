@@ -5,8 +5,8 @@ from pathlib import Path
 # import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'django-insecure-o8x581e+e#i@)w#i0tg(loir14s8(b7f936%)qcwt_4!p&r*&&'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-o8x581e+e#i@)w#i0tg(loir14s8(b7f936%)qcwt_4!p&r*&&'
 # DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['https://waseemint.com/','waseemint.com','waseem-int-d368a88e8f0a.herokuapp.com','www.waseemint.com','127.0.0.1']
@@ -77,27 +77,27 @@ AUTH_USER_MODEL = "accounts.Account"
 
 
 
-DATABASES = { 
-    'default': { 
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-        'NAME': os.environ.get('NAME'), 
-        'USER': os.environ.get('USER'), 
-        'PASSWORD': os.environ.get('DB_PASSWORD'), 
-        'HOST': os.environ.get('HOST'), 
-        'PORT': '5432', 
-    } 
-}
-
 # DATABASES = { 
 #     'default': { 
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-#         'NAME': 'dejdlbdf7mcu43', 
-#         'USER': 'uqtmvgh987aqi', 
-#         'PASSWORD': 'p1bb530f5b03418c9e092f6c98dc7d9ba1b5a301650bc1290d5876c96fe77dbbf', 
-#         'HOST': 'c9uss87s9bdb8n.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com', 
+#         'NAME': os.environ.get('NAME'), 
+#         'USER': os.environ.get('USER'), 
+#         'PASSWORD': os.environ.get('DB_PASSWORD'), 
+#         'HOST': os.environ.get('HOST'), 
 #         'PORT': '5432', 
 #     } 
-# } 
+# }
+
+DATABASES = { 
+    'default': { 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'dejdlbdf7mcu43', 
+        'USER': 'uqtmvgh987aqi', 
+        'PASSWORD': 'p1bb530f5b03418c9e092f6c98dc7d9ba1b5a301650bc1290d5876c96fe77dbbf', 
+        'HOST': 'c9uss87s9bdb8n.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com', 
+        'PORT': '5432', 
+    } 
+} 
 
 # DATABASES = {
 #     'default': {
