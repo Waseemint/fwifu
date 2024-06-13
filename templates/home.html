@@ -442,8 +442,8 @@
       <ul class="sub-cat">
         {% for main_category in main_categories %}
         {% for parent_category in main_category.parentcategory_set.all %}
-            {% for child_category in parent_category.childcategory_set.all|slice:"0:10" %}
-                <li><a href="{{ child_category.get_url }}">{{ child_category.name }}pl</a></li>
+            {% for child_category in parent_category.childcategory_set.all|slice:"0:9" %}
+                <li><a href="{{ child_category.get_url }}">{{ child_category.name }}</a></li>
             {% endfor %}
         {% endfor %}
     {% endfor %}
