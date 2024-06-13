@@ -440,13 +440,16 @@
     <div class="col-lg-3">
       <h3 class="section-title">Products</h3>
       <ul class="sub-cat">
-        {% for main_category in main_categories %}
-        {% for parent_category in main_category.parentcategory_set.all %}
-            {% for child_category in parent_category.childcategory_set.all|slice:"0:9" %}
+       {% for main_category in main_categories %}
+    {% for parent_category in main_category.parentcategory_set.all %}
+        {% for child_category in parent_category.childcategory_set.all %}
+            {% if forloop.counter0 < 10 %}
                 <li><a href="{{ child_category.get_url }}">{{ child_category.name }}</a></li>
-            {% endfor %}
+            {% endif %}
         {% endfor %}
     {% endfor %}
+{% endfor %}
+
       </ul>
       </div>
       <div class="col-lg-9">
