@@ -440,7 +440,7 @@
     <div class="col-lg-3">
       <h3 class="section-title">Products</h3>
       <ul class="sub-cat">
-     {% with total_displayed_categories=0 %}
+    {% with total_displayed_categories=0 %}
     {% for main_category in main_categories %}
         {% for parent_category in main_category.parentcategory_set.all %}
             {% for child_category in parent_category.childcategory_set.all %}
@@ -448,11 +448,20 @@
                     <li><a href="{{ child_category.get_url }}">{{ child_category.name }}</a></li>
                     {% with total_displayed_categories=total_displayed_categories|add:1 %}
                     {% endwith %}
+                {% else %}
+                    {% break %}
                 {% endif %}
             {% endfor %}
+            {% if total_displayed_categories >= 10 %}
+                {% break %}
+            {% endif %}
         {% endfor %}
+        {% if total_displayed_categories >= 10 %}
+            {% break %}
+        {% endif %}
     {% endfor %}
 {% endwith %}
+
 
 
       </ul>
