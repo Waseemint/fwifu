@@ -111,6 +111,8 @@ class ChildCategory(models.Model):
     name = models.CharField(max_length=100)
     parent_category = models.ForeignKey(ParentCategory, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, blank=True, null=True)
+    home = models.BooleanField(blank=True, null=True, default=False)
+
 
     class Meta:
         verbose_name = '3 - Child Category'
