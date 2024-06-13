@@ -1,5 +1,9 @@
 import os
 from pathlib import Path
+
+# import django_heroku
+# import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECRET_KEY = 'django-insecure-o8x581e+e#i@)w#i0tg(loir14s8(b7f936%)qcwt_4!p&r*&&'
@@ -14,6 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
+
     'category',
     'accounts',
     'store',
@@ -139,13 +145,24 @@ USE_TZ = True
 # application.add_files(media_root, prefix='/media/')
 
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR,'static'),
+# )
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-if DEBUG:
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# if DEBUG:
+# else:
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 ADMINS = [
@@ -170,3 +187,9 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 # EMAIL_HOST_USER = 'waseemint.pk@gmail.com'
 # EMAIL_HOST_PASSWORD = 'pgkzlwobwbbfzhky'
 
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
+SESSION_COOKIE_SECURE = False
+
+# django_heroku.settings(locals())
